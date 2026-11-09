@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { maisProcuradas, trocas } from './trocas.js';
+import { maisProcuradas, trocas, type Copias } from './trocas.js';
 
 const codes = ['1', '2', '3', '4', 'A1'];
 
