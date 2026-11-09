@@ -5,6 +5,20 @@ Companheiro para o álbum **Snoopy – Um Ano para Recordar** (Panini, 2026): re
 - Produção: https://app.caderninho.workers.dev (Cloudflare Workers + D1, plano Free)
 - Documentação: [`docs/`](docs/) — plano de implementação, hospedagem, handoff de design.
 
+## Estado
+
+| Fase | Entrega                                                         | Status |
+| ---- | --------------------------------------------------------------- | ------ |
+| 0    | Scaffold, D1, CI/CD                                             | ✅     |
+| 1    | Login, cadastro livre, sessões                                  | ✅     |
+| 2    | Álbum interativo (colar, repetidas, envelope, detalhe, filtros) | ✅     |
+| 3    | Estatísticas                                                    | ✅     |
+| 4    | Turmas e convites                                               | ✅     |
+| 5    | Dashboard de trocas                                             | ✅     |
+| 6    | Polimento (PWA, conta, créditos, exportar, tema)                | ✅     |
+
+Pendente: transcrever o checklist real do álbum para `data/stickers.csv` (hoje o catálogo é provisório, 1..276).
+
 ## Stack
 
 SvelteKit 3 · `@sveltejs/adapter-cloudflare` · Cloudflare D1 · Drizzle ORM · Tailwind v4 · Vitest · Wrangler.

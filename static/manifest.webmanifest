@@ -1,0 +1,16 @@
+{
+	"name": "Caderninho de Figurinhas",
+	"short_name": "Caderninho",
+	"description": "Companheiro do álbum Snoopy – Um Ano para Recordar (2026): figurinhas, estatísticas e trocas com a turma.",
+	"lang": "pt-BR",
+	"start_url": "/album",
+	"scope": "/",
+	"display": "standalone",
+	"background_color": "#F6EFE3",
+	"theme_color": "#F6EFE3",
+	"icons": [
+		{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+		{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+		{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+	]
+}
