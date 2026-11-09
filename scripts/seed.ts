@@ -55,6 +55,12 @@ for (const [id, name, pos] of SECTIONS)
 for (const r of rows)
 	sql += `INSERT OR REPLACE INTO stickers (code, sort_order, section_id, kind, page, label) VALUES (${q(r.code)}, ${r.sort_order}, ${q(r.section_id)}, ${q(r.kind)}, ${r.page ? Number(r.page) : 'NULL'}, ${r.label ? q(r.label) : 'NULL'});\n`;
 
+// Remove códigos que não existem mais no catálogo (ex.: placeholder antigo), e seus registros.
+const lista = rows.map((r) => q(r.code)).join(', ');
+sql += `DELETE FROM sticker_events WHERE sticker_code NOT IN (${lista});\n`;
+sql += `DELETE FROM user_stickers WHERE sticker_code NOT IN (${lista});\n`;
+sql += `DELETE FROM stickers WHERE code NOT IN (${lista});\n`;
+
 writeFileSync('data/seed.sql', sql);
 console.log(
 	`data/seed.sql: ${rows.length} figurinhas (${existsSync('data/stickers.csv') ? 'csv' : 'placeholder'})`

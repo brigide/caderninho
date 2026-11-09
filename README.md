@@ -17,7 +17,7 @@ Companheiro para o álbum **Snoopy – Um Ano para Recordar** (Panini, 2026): re
 | 5    | Dashboard de trocas                                             | ✅     |
 | 6    | Polimento (PWA, conta, créditos, exportar, tema)                | ✅     |
 
-Pendente: transcrever o checklist real do álbum para `data/stickers.csv` (hoje o catálogo é provisório, 1..276).
+Catálogo: `data/stickers.csv` segue a lista oficial da Panini ([cromos faltantes](https://panini.com.br/cromos-faltantes-snoopy-um-ano-para-recordar)): 1–260 (25 duplas "a/b", registradas pelo número, ex.: `11` = 11a/11b) + extras X1–X16 = 276 cromos. A divisão por estação e os tipos (a Panini informa 132 especiais) ainda precisam ser conferidos com o álbum físico — veja os comentários no topo de `data/CHECKLIST.md`.
 
 ## Stack
 
