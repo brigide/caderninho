@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { page } from '$app/state';
 	import type { PageProps } from './$types';
 
 	let { form }: PageProps = $props();
@@ -97,7 +98,9 @@
 		</form>
 
 		<p class="center" style="margin:auto 24px 0 0">
-			Ainda não tem caderninho? <a href="/registro" class="strong wavy">Criar conta</a>
+			Ainda não tem caderninho? <a href="/registro{page.url.search}" class="strong wavy"
+				>Criar conta</a
+			>
 		</p>
 	</section>
 

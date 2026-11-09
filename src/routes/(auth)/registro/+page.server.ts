@@ -3,14 +3,20 @@ import { eq } from 'drizzle-orm';
 import { createId } from '@paralleldrive/cuid2';
 import type { Actions } from './$types';
 import { createDb, schema } from '#lib/server/db/index.js';
-import { consume, createSession, hashPassword, setSessionCookie } from '#lib/server/auth/index.js';
+import {
+	consume,
+	createSession,
+	hashPassword,
+	safeNext,
+	setSessionCookie
+} from '#lib/server/auth/index.js';
 import { errs, fieldErrors, registroSchema } from '#lib/validation.js';
 
 const LIMIT = 5;
 const WINDOW_MS = 60 * 60 * 1000;
 
 export const actions: Actions = {
-	default: async ({ request, cookies, getClientAddress }) => {
+	default: async ({ request, cookies, url, getClientAddress }) => {
 		const form = await request.formData();
 		const raw = {
 			nome: String(form.get('nome') ?? ''),
@@ -52,6 +58,6 @@ export const actions: Actions = {
 
 		const sid = await createSession(db, id);
 		setSessionCookie(cookies, sid);
-		redirect(303, '/album');
+		redirect(303, safeNext(url.searchParams.get('next')));
 	}
 };

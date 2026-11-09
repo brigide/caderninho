@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { page } from '$app/state';
 	import type { PageProps } from './$types';
 
 	let { form }: PageProps = $props();
@@ -118,7 +119,9 @@
 		>
 			{sending ? 'Criando…' : 'Criar meu caderninho'}
 		</button>
-		<p class="center">Já tem conta? <a href="/login" class="strong wavy">Entrar</a></p>
+		<p class="center">
+			Já tem conta? <a href="/login{page.url.search}" class="strong wavy">Entrar</a>
+		</p>
 	</div>
 </main>
 
