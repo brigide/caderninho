@@ -58,6 +58,8 @@ export function estimativaColecionador(
 }
 
 /** Estimativa pela taxa de novas observada (novas / lançadas) nas últimas semanas. */
+/** Só é usada com um mínimo de figurinhas lançadas; antes disso a taxa é ruído. */
+export const MIN_LANCADAS_OBSERVADA = 20;
 export function estimativaObservada(
 	faltam: number,
 	novas: number,
@@ -65,7 +67,7 @@ export function estimativaObservada(
 	porEnvelope = 5,
 	precoEnvelope = 5
 ) {
-	if (lancadas === 0 || novas === 0) return null;
+	if (lancadas < MIN_LANCADAS_OBSERVADA || novas === 0) return null;
 	const taxa = Math.min(1, novas / lancadas);
 	const envelopes = Math.ceil(faltam / (porEnvelope * taxa));
 	return { taxa, envelopes, custo: envelopes * precoEnvelope };
