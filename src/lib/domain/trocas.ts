@@ -20,3 +20,16 @@ export function maisProcuradas(members: Copias[], codes: string[], limit = 10) {
 		)
 		.slice(0, limit);
 }
+
+/** Subconjunto equilibrado: os `fair` primeiros de cada lado (listas já vêm na ordem do catálogo). */
+export function selecionarJusta(t: Troca): { dar: string[]; receber: string[] } {
+	return { dar: t.iGive.slice(0, t.fair), receber: t.iReceive.slice(0, t.fair) };
+}
+
+export function dicaTroca(nome: string, t: Troca): string {
+	if (t.iGive.length === 0 && t.iReceive.length === 0) return 'nada para trocar por enquanto';
+	if (t.iGive.length === t.iReceive.length) return 'tudo bate certinho';
+	if (t.iGive.length > t.iReceive.length)
+		return `você tem ${t.iGive.length - t.fair} sobrando para ${nome}`;
+	return `${nome} tem ${t.iReceive.length - t.fair} a mais para você`;
+}

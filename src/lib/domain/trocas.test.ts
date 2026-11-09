@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { maisProcuradas, trocas, type Copias } from './trocas.js';
+import { dicaTroca, maisProcuradas, selecionarJusta, trocas, type Copias } from './trocas.js';
 
 const codes = ['1', '2', '3', '4', 'A1'];
 
@@ -29,5 +29,22 @@ describe('maisProcuradas', () => {
 			{ code: '3', needed: 3 },
 			{ code: 'A1', needed: 3 }
 		]);
+	});
+});
+
+describe('selecionarJusta / dicaTroca', () => {
+	it('corta cada lado no tamanho justo', () => {
+		const t = { iGive: ['1', '2', '3'], iReceive: ['9'], fair: 1 };
+		expect(selecionarJusta(t)).toEqual({ dar: ['1'], receber: ['9'] });
+		expect(dicaTroca('Ana', t)).toBe('você tem 2 sobrando para Ana');
+	});
+	it('dicas para os outros casos', () => {
+		expect(dicaTroca('Ana', { iGive: ['1'], iReceive: ['2'], fair: 1 })).toBe('tudo bate certinho');
+		expect(dicaTroca('Ana', { iGive: [], iReceive: ['2', '3'], fair: 0 })).toBe(
+			'Ana tem 2 a mais para você'
+		);
+		expect(dicaTroca('Ana', { iGive: [], iReceive: [], fair: 0 })).toBe(
+			'nada para trocar por enquanto'
+		);
 	});
 });

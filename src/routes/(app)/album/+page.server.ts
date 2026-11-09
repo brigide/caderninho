@@ -2,6 +2,7 @@ import { asc } from 'drizzle-orm';
 import type { PageServerLoad } from './$types';
 import { createDb, schema } from '#lib/server/db/index.js';
 import { getCopias } from '#lib/server/stickers.js';
+import { vizinhosPorCodigo } from '#lib/server/trocas.js';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	const db = createDb();
@@ -19,5 +20,10 @@ export const load: PageServerLoad = async ({ locals }) => {
 			.orderBy(asc(schema.stickers.sortOrder)),
 		getCopias(db, locals.user!.id)
 	]);
-	return { sections, stickers, copias };
+	const vizinhos = await vizinhosPorCodigo(
+		db,
+		locals.user!.id,
+		stickers.map((f) => f.code)
+	);
+	return { sections, stickers, copias, vizinhos };
 };
