@@ -100,3 +100,10 @@ export const stickerEvents = sqliteTable('sticker_events', {
 	delta: integer('delta').notNull(), // +1 / -1
 	at: integer('at').notNull()
 });
+
+/** Janela de rate limit por chave (ex.: `login:<ip>`). */
+export const rateLimits = sqliteTable('rate_limits', {
+	key: text('key').primaryKey(),
+	windowStart: integer('window_start').notNull(),
+	count: integer('count').notNull().default(0)
+});
