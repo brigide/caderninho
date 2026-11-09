@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>Caderninho de Figurinhas</title>
+  <rect width="512" height="512" rx="112" fill="#F6EFE3"/>
+  <g fill="#2B2622" fill-opacity=".13">
+    <circle cx="96" cy="96" r="6"/><circle cx="160" cy="96" r="6"/><circle cx="224" cy="96" r="6"/><circle cx="288" cy="96" r="6"/><circle cx="352" cy="96" r="6"/><circle cx="416" cy="96" r="6"/>
+    <circle cx="96" cy="416" r="6"/><circle cx="160" cy="416" r="6"/><circle cx="224" cy="416" r="6"/><circle cx="288" cy="416" r="6"/><circle cx="352" cy="416" r="6"/><circle cx="416" cy="416" r="6"/>
+  </g>
+  <!-- sombra de papel recortado -->
+  <path d="M128 232 L256 128 L384 232 L384 400 L128 400 Z" transform="translate(10 12)" fill="#2B2622" fill-opacity=".18"/>
+  <!-- casinha -->
+  <path d="M128 232 L256 128 L384 232 L384 400 L128 400 Z" fill="#C8463B" stroke="#2B2622" stroke-width="14" stroke-linejoin="round"/>
+  <!-- telhado -->
+  <path d="M104 244 L256 118 L408 244" fill="none" stroke="#2B2622" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- porta -->
+  <path d="M216 400 L216 318 a40 40 0 0 1 80 0 L296 400 Z" fill="#2B2622"/>
+  <!-- zigue-zague amarelo -->
+  <path d="M160 440 l24 -20 24 20 24 -20 24 20 24 -20 24 20 24 -20 24 20" fill="none" stroke="#F2C94C" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

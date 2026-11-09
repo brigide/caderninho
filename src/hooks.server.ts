@@ -8,7 +8,7 @@ import {
 	validateSession
 } from '#lib/server/auth/index.js';
 
-const PUBLIC = [/^\/login$/, /^\/registro$/, /^\/convite\//];
+const PUBLIC = [/^\/login$/, /^\/registro$/, /^\/convite\//, /^\/creditos$/];
 
 export const handle: Handle = async ({ event, resolve }) => {
 	event.locals.user = null;
