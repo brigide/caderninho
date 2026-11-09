@@ -1040,3 +1040,9 @@
 	text-transform: uppercase;
 	color: var(--ink-soft);
 }
+.turma-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: var(--text-body);
+}

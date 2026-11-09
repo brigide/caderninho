@@ -126,5 +126,10 @@
 {#if envelope}
 	<EnvelopeSheet {album} onclose={() => (envelope = false)} />
 {:else if detalhe}
-	<DetalheSheet {album} f={detalhe} onclose={() => (detalhe = null)} />
+	<DetalheSheet
+		{album}
+		f={detalhe}
+		vizinhos={data.vizinhos[detalhe.code]}
+		onclose={() => (detalhe = null)}
+	/>
 {/if}

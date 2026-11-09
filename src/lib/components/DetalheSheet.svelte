@@ -4,7 +4,16 @@
 	import Sheet from './Sheet.svelte';
 	import StickerCell from './StickerCell.svelte';
 
-	let { album, f, onclose }: { album: Album; f: Figurinha; onclose: () => void } = $props();
+	import type { VizinhosPorCodigo } from '#lib/server/trocas.js';
+	import { corAvatar, inicial } from '#lib/domain/turmas.js';
+
+	let {
+		album,
+		f,
+		vizinhos,
+		onclose
+	}: { album: Album; f: Figurinha; vizinhos?: VizinhosPorCodigo[string]; onclose: () => void } =
+		$props();
 
 	const c = $derived(album.get(f.code));
 	const secao = $derived(album.secoes.find((s) => s.id === f.sectionId));
@@ -72,6 +81,40 @@
 			onclick={() => album.definir(f.code, 0)}>Desmarcar</button
 		>
 	</div>
+
+	{#if vizinhos}
+		<div style="display:flex;flex-direction:column;gap:10px">
+			<span class="overline">Na sua turma</span>
+			{#each vizinhos.precisam as v, i (v.id)}
+				<div class="turma-row">
+					<span class="avatar avatar--sm avatar--{corAvatar(i + 1)}" style="width:34px;height:34px"
+						>{inicial(v.displayName)}</span
+					>
+					<span style="flex:1"><b>{v.displayName}</b> precisa dessa</span>
+					{#if c > 1}<a
+							href="/turmas/{v.turmaId}/trocas"
+							class="strong"
+							style="color:var(--doghouse-text);font-size:14px">Oferecer</a
+						>{/if}
+				</div>
+			{/each}
+			{#each vizinhos.temRepetida as v, i (v.id)}
+				<div class="turma-row">
+					<span class="avatar avatar--sm avatar--{corAvatar(i + 2)}" style="width:34px;height:34px"
+						>{inicial(v.displayName)}</span
+					>
+					<span style="flex:1"
+						><b>{v.displayName}</b> {c > 0 ? 'também tem repetida' : 'tem repetida'}</span
+					>
+					{#if c === 0}<a
+							href="/turmas/{v.turmaId}/trocas"
+							class="strong"
+							style="color:var(--doghouse-text);font-size:14px">Pedir</a
+						>{/if}
+				</div>
+			{/each}
+		</div>
+	{/if}
 
 	<button type="button" class="btn btn--ghost btn--sm" style="align-self:center" onclick={onclose}
 		>Fechar</button
