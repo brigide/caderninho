@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trocas com a turma · Caderninho de Figurinhas</title>
+<script src="../js/theme.js"></script>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<style>
+  .trade-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr)); gap: 24px; }
+  .trade-grid .mini-grid { gap: 6px; }
+  .trade-grid .cell--sm { font-size: 13px; }
+</style>
+</head>
+<body class="dots" style="min-height:100vh">
+<header class="topbar">
+  <div class="topbar__inner">
+    <span class="topbar__brand">Caderninho de Figurinhas</span>
+    <nav class="topbar__nav" aria-label="Principal">
+      <a href="desktop-album.html">Álbum</a>
+      <a href="estatisticas.html">Estatísticas</a>
+      <a href="desktop-trocas.html" aria-current="page">Grupos e trocas</a>
+      <a href="#conta">Conta</a>
+    </nav>
+    <span class="avatar avatar--blue" aria-label="Bruno">B</span>
+  </div>
+</header>
+
+<div class="desk" style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px">
+    <div>
+      <a href="grupos.html" class="strong small" style="text-decoration:none;font-size:14px">← Turma do prédio</a>
+      <h1 class="display" style="font-size:44px;margin-top:4px">Trocas com a turma</h1>
+    </div>
+    <div class="chips" style="margin:0;padding:0;flex-wrap:wrap" role="group" aria-label="Grupo">
+      <button type="button" class="chip is-on" aria-pressed="true">Turma do prédio · 14 trocas</button>
+      <button type="button" class="chip" aria-pressed="false">Bruno &amp; Léo · 0</button>
+    </div>
+  </div>
+
+  <div class="desk__row" style="gap:28px">
+    <div class="trade-grid" style="flex:999 1 640px;min-width:0" data-trocas></div>
+    <aside class="desk__side" style="flex:1 1 280px;max-width:340px;gap:12px">
+      <h2 class="display" style="font-size:28px">Mais procuradas na turma</h2>
+      <div class="card" style="padding:8px 16px">
+        <span class="washi washi--blue" aria-hidden="true" style="top:-10px;right:30px;transform:rotate(4deg)"></span>
+        <ul data-wanted></ul>
+      </div>
+      <p class="small">Ninguém da turma tem repetida dessas ainda. Fique de olho no próximo envelope.</p>
+    </aside>
+  </div>
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/trocas.js"></script>
+</body>
+</html>

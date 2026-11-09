@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meu Álbum · Caderninho de Figurinhas</title>
+<script src="../js/theme.js"></script>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+</head>
+<body class="dots" style="min-height:100vh">
+<header class="topbar">
+  <div class="topbar__inner">
+    <span class="topbar__brand">Caderninho de Figurinhas</span>
+    <nav class="topbar__nav" aria-label="Principal">
+      <a href="desktop-album.html" aria-current="page">Álbum</a>
+      <a href="estatisticas.html">Estatísticas</a>
+      <a href="desktop-trocas.html">Grupos e trocas</a>
+      <a href="#conta">Conta</a>
+    </nav>
+    <span class="avatar avatar--blue" aria-label="Bruno">B</span>
+  </div>
+</header>
+
+<div class="desk desk__row" data-album="desktop">
+  <aside class="desk__side">
+    <div class="card card--surface" style="padding:20px 18px 16px;display:flex;flex-direction:column;gap:12px">
+      <span class="washi" aria-hidden="true" style="top:-10px;left:30px;transform:rotate(-4deg)"></span>
+      <span class="small strong">Snoopy · Um Ano para Recordar · 2026</span>
+      <span class="num" style="font-size:30px;font-weight:800;line-height:1"><span data-progress-count>187</span> <span style="font-size:18px;font-weight:700">/ 276 · <span data-progress-pct>68</span>%</span></span>
+      <div class="season-bar" role="img" aria-label="Progresso por estação">
+        <div class="season-bar__seg"><div class="season-bar__fill fill--spring" data-season-fill="spring"></div></div>
+        <div class="season-bar__seg"><div class="season-bar__fill fill--summer" data-season-fill="summer"></div></div>
+        <div class="season-bar__seg"><div class="season-bar__fill fill--autumn" data-season-fill="autumn"></div></div>
+        <div class="season-bar__seg"><div class="season-bar__fill fill--winter" data-season-fill="winter"></div></div>
+      </div>
+      <nav aria-label="Estações" style="display:flex;flex-direction:column;gap:6px;padding-top:4px;font-size:14px;font-weight:700">
+        <a href="#sec-spring" style="display:flex;align-items:center;gap:8px;text-decoration:none"><i class="fill--spring" style="width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink)"></i><span style="flex:1">Primavera</span><span class="num" data-season-count="spring"></span></a>
+        <a href="#sec-summer" style="display:flex;align-items:center;gap:8px;text-decoration:none"><i class="fill--summer" style="width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink)"></i><span style="flex:1">Verão</span><span class="num" data-season-count="summer"></span></a>
+        <a href="#sec-autumn" style="display:flex;align-items:center;gap:8px;text-decoration:none"><i class="fill--autumn" style="width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink)"></i><span style="flex:1">Outono</span><span class="num" data-season-count="autumn"></span></a>
+        <a href="#sec-winter" style="display:flex;align-items:center;gap:8px;text-decoration:none"><i class="fill--winter" style="width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink)"></i><span style="flex:1">Inverno</span><span class="num" data-season-count="winter"></span></a>
+      </nav>
+    </div>
+
+    <a href="envelope.html" class="btn btn--primary btn--block">
+      <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Abrir envelope
+    </a>
+
+    <label class="search" style="height:44px">
+      <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <span class="sr-only">Buscar figurinha por código</span>
+      <input type="search" placeholder="Buscar por código" data-search>
+    </label>
+
+    <div class="filter-list" role="group" aria-label="Filtrar figurinhas">
+      <span class="overline" style="padding:0 12px 4px">Filtrar</span>
+      <button type="button" class="filter-btn" data-filter="all"><span>Todas</span><span class="num small" data-count></span></button>
+      <button type="button" class="filter-btn" data-filter="miss"><span>Faltando</span><span class="num small" data-count></span></button>
+      <button type="button" class="filter-btn" data-filter="have"><span>Coladas</span><span class="num small" data-count></span></button>
+      <button type="button" class="filter-btn" data-filter="dup"><span>Repetidas</span><span class="num small" data-count></span></button>
+      <button type="button" class="filter-btn" data-filter="reg"><span>Regular</span><span class="num small" data-count></span></button>
+      <button type="button" class="filter-btn" data-filter="esp"><span>Especial</span><span class="num small" data-count></span></button>
+      <button type="button" class="filter-btn" data-filter="ameba"><span>Ameba</span><span class="num small" data-count></span></button>
+    </div>
+  </aside>
+
+  <main class="desk__main">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px">
+      <h1 class="display" style="font-size:44px">Meu Álbum</h1>
+      <span class="small" style="font-size:14px">Clique para colar ou desfazer · Shift+clique adiciona repetida</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:32px" data-sections></div>
+  </main>
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/album.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estatísticas · Caderninho de Figurinhas</title>
+<script src="../js/theme.js"></script>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/illustrations.css">
+<style>
+  .big { font-size: 38px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+  .kpis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 14px; padding-top: 6px; }
+  .kpi { display: flex; flex-direction: column; gap: 6px; padding: 18px 14px 14px; }
+  .ring-track { stroke: var(--paper); }
+</style>
+</head>
+<body>
+<div class="screen dots">
+  <main class="screen__main" style="gap:22px">
+    <div>
+      <h1 class="display-l">Estatísticas</h1>
+      <p class="small muted" style="font-size:14px;margin-top:2px">Atualizado agora · 13 envelopes abertos</p>
+    </div>
+
+    <div class="kpis">
+      <div class="card kpi" style="align-items:center">
+        <span class="washi" aria-hidden="true" style="top:-10px;left:30px;width:70px;transform:rotate(-5deg)"></span>
+        <svg width="92" height="92" viewBox="0 0 92 92" role="img" aria-label="68% completo">
+          <circle class="ring-track" cx="46" cy="46" r="36" fill="none" stroke-width="12"/>
+          <circle cx="46" cy="46" r="36" fill="none" stroke="var(--grass)" stroke-width="12" stroke-dasharray="153.8 226.2" stroke-linecap="round" transform="rotate(-90 46 46)"/>
+          <text x="46" y="53" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="800" font-size="21" fill="var(--ink)">68%</text>
+        </svg>
+        <span class="strong" style="font-size:14px">completo</span>
+      </div>
+      <div class="card card--surface kpi">
+        <span class="washi washi--blue" aria-hidden="true" style="top:-10px;right:22px;width:70px;transform:rotate(4deg)"></span>
+        <span class="overline" style="font-size:11px">Faltam</span>
+        <span class="big">89</span>
+        <span style="font-size:14px">de 276 figurinhas</span>
+        <a href="album.html" class="strong small" style="margin-top:auto">Ver faltando →</a>
+      </div>
+      <div class="card card--yellow kpi">
+        <span class="washi washi--pink" aria-hidden="true" style="top:-10px;left:24px;width:70px;transform:rotate(3deg)"></span>
+        <span class="overline" style="font-size:11px">Repetidas</span>
+        <span class="big">134</span>
+        <span style="font-size:14px">prontas para trocar</span>
+      </div>
+      <div class="card kpi">
+        <span class="washi washi--green" aria-hidden="true" style="top:-10px;right:28px;width:70px;transform:rotate(-3deg)"></span>
+        <span class="overline" style="font-size:11px">Ritmo</span>
+        <span class="big">23</span>
+        <span style="font-size:14px">figurinhas novas por semana</span>
+      </div>
+    </div>
+
+    <section class="card card--surface card__pad" style="display:flex;flex-direction:column;gap:12px">
+      <h2 class="display-s" style="font-size:26px">Por estação</h2>
+      <div class="stat-row"><span>Primavera</span><div class="track track--lg"><span class="fill--spring" style="width:75%"></span></div><span>52/69</span></div>
+      <div class="stat-row"><span>Verão</span><div class="track track--lg"><span class="fill--summer" style="width:72%"></span></div><span>50/69</span></div>
+      <div class="stat-row"><span>Outono</span><div class="track track--lg"><span class="fill--autumn" style="width:67%"></span></div><span>46/69</span></div>
+      <div class="stat-row"><span>Inverno</span><div class="track track--lg"><span class="fill--winter" style="width:57%"></span></div><span>39/69</span></div>
+    </section>
+
+    <section class="card card--surface card__pad" style="display:flex;flex-direction:column;gap:12px">
+      <h2 class="display-s" style="font-size:26px">Por tipo</h2>
+      <div class="stat-row"><span>Regular</span><div class="track track--lg"><span class="fill--grass" style="width:69%"></span></div><span>170/248</span></div>
+      <div class="stat-row"><span>Especial</span><div class="track track--lg"><span style="width:65%;background:linear-gradient(135deg,var(--grass) 40%,var(--zigzag) 50%,var(--grass) 60%)"></span></div><span>11/17</span></div>
+      <div class="stat-row"><span>Ameba</span><div class="track track--lg" style="border-radius:10px 4px 9px 5px"><span class="fill--grass" style="width:55%"></span></div><span>6/11</span></div>
+    </section>
+
+    <section class="card card__pad" style="padding-top:20px;display:flex;flex-direction:column;gap:10px">
+      <span class="washi" aria-hidden="true" style="top:-10px;left:50%;margin-left:-35px;width:70px;transform:rotate(2deg)"></span>
+      <div class="env-stack" aria-hidden="true" style="right:16px;top:22px"><i></i><i></i><i></i><b>×41</b></div>
+      <span class="overline" style="font-size:11px">Estimativa</span>
+      <p style="padding-right:92px;font-size:20px;font-weight:800;line-height:1.25">≈ 41 envelopes <span style="font-weight:600">(~R$ 205)</span> para completar</p>
+      <div style="display:flex;align-items:center;gap:10px"><span class="rule"></span><span class="display" style="font-size:20px">ou</span><span class="rule"></span></div>
+      <p style="font-size:16px">peça <b>89 avulsas por R$ 89</b> na Panini</p>
+      <p style="font-size:12px">Estimativa considera 5 figurinhas por envelope e sua taxa atual de repetidas. Valores de exemplo.</p>
+    </section>
+
+    <section class="card card--surface card__pad" style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="display-s" style="font-size:26px">Semana a semana</h2><span class="small strong">últimas 8</span></div>
+      <svg width="100%" height="96" viewBox="0 0 320 96" role="img" aria-label="Figurinhas novas por semana: 12, 31, 18, 26, 22, 35, 20, 23">
+        <path d="M4 88 L316 88" stroke="var(--ink)" stroke-width="1.2" stroke-dasharray="4 4" opacity=".4"/>
+        <path d="M8 64 C26 60 34 22 52 24 S82 52 96 50 S128 32 140 33 S170 44 184 43 S214 12 228 13 S256 50 272 48 S300 40 312 41" fill="none" stroke="var(--doghouse)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="228" cy="13" r="4.5" fill="var(--zigzag)" stroke="var(--ink)" stroke-width="1.5"/>
+        <circle cx="312" cy="41" r="4.5" fill="var(--doghouse)" stroke="var(--ink)" stroke-width="1.5"/>
+      </svg>
+      <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700"><span>set</span><span>out</span><span>nov</span></div>
+      <p class="small">Melhor semana: <b>35 novas</b> (19–25 out).</p>
+    </section>
+  </main>
+
+  <nav class="tabbar" aria-label="Principal">
+    <a class="tabbar__item" href="album.html"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Álbum</a>
+    <a class="tabbar__item" href="estatisticas.html" aria-current="page"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>Estatísticas</a>
+    <a class="tabbar__item" href="grupos.html"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Grupos</a>
+    <a class="tabbar__item" href="#conta"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Conta</a>
+  </nav>
+</div>
+</body>
+</html>

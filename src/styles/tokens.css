@@ -1,0 +1,96 @@
+/* Caderninho de Figurinhas — design tokens
+   Fonte da verdade: canvas "Caderninho de Figurinhas" (Design system).
+   Modo escuro: <html data-theme="dark">. Acentos não mudam. */
+
+:root {
+	/* Superfícies e tinta */
+	--paper: #f6efe3; /* fundo principal, papel creme */
+	--kraft: #e8d8bf; /* cartões, abas, nav inferior */
+	--surface: #fffdf7; /* cards de leitura, listas, campos */
+	--ink: #2b2622; /* texto principal, traço de caneta, bordas */
+	--ink-soft: #6e635a; /* texto secundário — só sobre --paper (5.0:1) */
+	--on-accent: #2b2622; /* texto sobre acentos claros (zigzag, blanket, grass, estações) */
+	--on-primary: #ffffff; /* texto sobre --doghouse (4.8:1) */
+
+	/* Marca */
+	--doghouse: #c8463b; /* ação primária, "casinha vermelha" */
+	--doghouse-text: #a8362d; /* doghouse para TEXTO pequeno sobre paper/kraft (≥4.5:1) */
+	--zigzag: #f2c94c; /* destaque, repetida */
+	--blanket: #9fc5e8; /* informação */
+	--grass: #7fa86b; /* sucesso, colada */
+	--grass-soft: #cfe0c1; /* fundo da figurinha colada */
+	--grass-ink: #2e5a22; /* check rabiscado */
+
+	/* Estações */
+	--season-spring: #e9a9c0;
+	--season-summer: #f4b860;
+	--season-autumn: #b8683a; /* texto branco por cima */
+	--season-winter: #8fa9c9;
+
+	/* Madeira (ilustrações) */
+	--wood: #8a5a3b;
+	--wood-light: #96644a;
+	--wood-dark: #7a4e33;
+	--coffee: #5a331b;
+
+	/* Linhas e texturas */
+	--dot: rgba(43, 38, 34, 0.13); /* pontilhado do caderno */
+	--rule: rgba(43, 38, 34, 0.3); /* separadores tracejados */
+	--scrim: rgba(43, 38, 34, 0.45);
+
+	/* Tipografia */
+	--font-display: 'Patrick Hand', 'Gochi Hand', cursive;
+	--font-body: 'Nunito', 'Quicksand', system-ui, sans-serif;
+	--font-stamp: 'DM Mono', ui-monospace, monospace;
+
+	--text-display-xl: 48px;
+	--text-display-l: 34px;
+	--text-display-m: 28px;
+	--text-display-s: 24px;
+	--text-body-l: 17px;
+	--text-body: 15px;
+	--text-small: 13px;
+	--text-overline: 12px;
+
+	/* Espaço */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-6: 24px;
+	--space-8: 32px;
+	--space-12: 48px;
+
+	/* Forma */
+	--stroke: 1.5px;
+	--radius-sm: 12px;
+	--radius-hand: 15px 13px 16px 12px / 12px 16px 13px 15px; /* "desenhado à mão" */
+	--radius-card: 14px 16px 13px 15px / 15px 13px 16px 14px;
+	--radius-sheet: 22px;
+	--radius-pill: 999px;
+	--radius-ameba: 44% 56% 52% 48% / 50% 42% 58% 50%;
+
+	/* Sombra: papel recortado, sem blur */
+	--shadow-color: rgba(43, 38, 34, 0.15);
+	--shadow-paper: 2px 3px 0 var(--shadow-color);
+	--shadow-card: 3px 3px 0 var(--shadow-color);
+
+	/* Movimento */
+	--ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+	--dur-stick: 380ms;
+}
+
+[data-theme='dark'] {
+	--paper: #221e1a;
+	--kraft: #2e2823;
+	--surface: #2a2420;
+	--ink: #f1e8da;
+	--ink-soft: #b8ac9f;
+	--grass-soft: #3a4a30;
+	--grass-ink: #a9d18e;
+	--doghouse-text: #f07a6e;
+	--dot: rgba(255, 255, 255, 0.06);
+	--rule: rgba(241, 232, 218, 0.25);
+	--scrim: rgba(0, 0, 0, 0.55);
+	--shadow-color: rgba(0, 0, 0, 0.4);
+}

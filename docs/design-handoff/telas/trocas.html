@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trocas com a turma · Caderninho de Figurinhas</title>
+<script src="../js/theme.js"></script>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+<div class="screen dots">
+  <main class="screen__main" style="padding-top:10px;gap:20px">
+    <div class="page-head">
+      <a href="grupo-detalhe.html" class="icon-btn icon-btn--bare back" aria-label="Voltar para o grupo"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></a>
+      <div>
+        <h1 class="display" style="font-size:32px">Trocas com a turma</h1>
+        <p class="small strong">Turma do prédio · 3 pessoas com troca</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px" data-trocas></div>
+
+    <section style="display:flex;flex-direction:column;gap:10px;padding-top:6px">
+      <h2 class="display" style="font-size:26px">Mais procuradas na turma</h2>
+      <ul class="card" style="padding:4px 14px;box-shadow:none" data-wanted></ul>
+    </section>
+  </main>
+
+  <nav class="tabbar" aria-label="Principal">
+    <a class="tabbar__item" href="album.html"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Álbum</a>
+    <a class="tabbar__item" href="estatisticas.html"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>Estatísticas</a>
+    <a class="tabbar__item" href="grupos.html" aria-current="page"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Grupos</a>
+    <a class="tabbar__item" href="#conta"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Conta</a>
+  </nav>
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/trocas.js"></script>
+</body>
+</html>

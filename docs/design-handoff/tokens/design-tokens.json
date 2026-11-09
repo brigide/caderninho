@@ -1,0 +1,84 @@
+{
+  "$description": "Caderninho de Figurinhas — design tokens (formato W3C Design Tokens). Modo escuro em 'theme.dark'.",
+  "color": {
+    "paper":        { "$type": "color", "$value": "#F6EFE3", "$description": "Fundo principal, papel creme" },
+    "kraft":        { "$type": "color", "$value": "#E8D8BF", "$description": "Cartões, abas, nav inferior" },
+    "surface":      { "$type": "color", "$value": "#FFFDF7", "$description": "Cards de leitura, listas, campos" },
+    "ink":          { "$type": "color", "$value": "#2B2622", "$description": "Texto principal, bordas" },
+    "ink-soft":     { "$type": "color", "$value": "#6E635A", "$description": "Texto secundário — só sobre paper" },
+    "on-accent":    { "$type": "color", "$value": "#2B2622", "$description": "Texto sobre acentos claros" },
+    "on-primary":   { "$type": "color", "$value": "#FFFFFF", "$description": "Texto sobre doghouse" },
+    "doghouse":     { "$type": "color", "$value": "#C8463B", "$description": "Ação primária" },
+    "doghouse-text":{ "$type": "color", "$value": "#A8362D", "$description": "Doghouse para texto pequeno (≥4.5:1)" },
+    "zigzag":       { "$type": "color", "$value": "#F2C94C", "$description": "Destaque, repetida" },
+    "blanket":      { "$type": "color", "$value": "#9FC5E8", "$description": "Informação" },
+    "grass":        { "$type": "color", "$value": "#7FA86B", "$description": "Sucesso" },
+    "grass-soft":   { "$type": "color", "$value": "#CFE0C1", "$description": "Fundo da figurinha colada" },
+    "grass-ink":    { "$type": "color", "$value": "#2E5A22", "$description": "Check rabiscado" },
+    "season": {
+      "spring": { "$type": "color", "$value": "#E9A9C0", "$description": "Primavera" },
+      "summer": { "$type": "color", "$value": "#F4B860", "$description": "Verão" },
+      "autumn": { "$type": "color", "$value": "#B8683A", "$description": "Outono — texto branco por cima" },
+      "winter": { "$type": "color", "$value": "#8FA9C9", "$description": "Inverno" }
+    },
+    "wood": {
+      "base":  { "$type": "color", "$value": "#8A5A3B" },
+      "light": { "$type": "color", "$value": "#96644A" },
+      "dark":  { "$type": "color", "$value": "#7A4E33" },
+      "coffee":{ "$type": "color", "$value": "#5A331B" }
+    }
+  },
+  "theme": {
+    "dark": {
+      "paper":         { "$type": "color", "$value": "#221E1A" },
+      "kraft":         { "$type": "color", "$value": "#2E2823" },
+      "surface":       { "$type": "color", "$value": "#2A2420" },
+      "ink":           { "$type": "color", "$value": "#F1E8DA" },
+      "ink-soft":      { "$type": "color", "$value": "#B8AC9F" },
+      "grass-soft":    { "$type": "color", "$value": "#3A4A30" },
+      "grass-ink":     { "$type": "color", "$value": "#A9D18E" },
+      "doghouse-text": { "$type": "color", "$value": "#F07A6E" }
+    }
+  },
+  "font": {
+    "display": { "$type": "fontFamily", "$value": ["Patrick Hand", "Gochi Hand", "cursive"] },
+    "body":    { "$type": "fontFamily", "$value": ["Nunito", "Quicksand", "system-ui", "sans-serif"] },
+    "stamp":   { "$type": "fontFamily", "$value": ["DM Mono", "ui-monospace", "monospace"] }
+  },
+  "font-size": {
+    "display-xl": { "$type": "dimension", "$value": "48px" },
+    "display-l":  { "$type": "dimension", "$value": "34px" },
+    "display-m":  { "$type": "dimension", "$value": "28px" },
+    "display-s":  { "$type": "dimension", "$value": "24px" },
+    "body-l":     { "$type": "dimension", "$value": "17px" },
+    "body":       { "$type": "dimension", "$value": "15px" },
+    "small":      { "$type": "dimension", "$value": "13px" },
+    "overline":   { "$type": "dimension", "$value": "12px" }
+  },
+  "space": {
+    "1": { "$type": "dimension", "$value": "4px" },
+    "2": { "$type": "dimension", "$value": "8px" },
+    "3": { "$type": "dimension", "$value": "12px" },
+    "4": { "$type": "dimension", "$value": "16px" },
+    "6": { "$type": "dimension", "$value": "24px" },
+    "8": { "$type": "dimension", "$value": "32px" },
+    "12": { "$type": "dimension", "$value": "48px" }
+  },
+  "radius": {
+    "sm":    { "$type": "dimension", "$value": "12px" },
+    "sheet": { "$type": "dimension", "$value": "22px" },
+    "hand":  { "$type": "other", "$value": "15px 13px 16px 12px / 12px 16px 13px 15px", "$description": "Raio irregular, desenhado à mão" },
+    "card":  { "$type": "other", "$value": "14px 16px 13px 15px / 15px 13px 16px 14px" },
+    "ameba": { "$type": "other", "$value": "44% 56% 52% 48% / 50% 42% 58% 50%" }
+  },
+  "stroke": { "$type": "dimension", "$value": "1.5px" },
+  "shadow": {
+    "paper": { "$type": "shadow", "$value": { "color": "#2B262226", "offsetX": "2px", "offsetY": "3px", "blur": "0px", "spread": "0px" } },
+    "card":  { "$type": "shadow", "$value": { "color": "#2B262226", "offsetX": "3px", "offsetY": "3px", "blur": "0px", "spread": "0px" } }
+  },
+  "motion": {
+    "stick": { "$type": "duration", "$value": "380ms", "$description": "Squash & stretch ao colar" },
+    "check": { "$type": "duration", "$value": "350ms", "$description": "Traço do check, atraso 120ms" },
+    "sheet": { "$type": "duration", "$value": "260ms" }
+  }
+}

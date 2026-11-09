@@ -1,0 +1,52 @@
+{
+	"name": "caderninho",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*"
+	},
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check .",
+		"format": "prettier --write .",
+		"test:unit": "vitest",
+		"test": "npm run test:unit -- --run",
+		"seed": "node --experimental-strip-types scripts/seed.ts",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate:local": "wrangler d1 migrations apply caderninho --local",
+		"db:migrate:remote": "wrangler d1 migrations apply caderninho --remote",
+		"db:seed:local": "npm run seed && wrangler d1 execute caderninho --local --file=./data/seed.sql",
+		"db:seed:remote": "npm run seed && wrangler d1 execute caderninho --remote --file=./data/seed.sql",
+		"deploy": "npm run build && wrangler deploy",
+		"cf-typegen": "wrangler types"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-cloudflare": "^8.0.2",
+		"@sveltejs/kit": "^3.0.0",
+		"@sveltejs/vite-plugin-svelte": "^7.2.0",
+		"@tailwindcss/vite": "^4.3.0",
+		"drizzle-kit": "^0.31.11",
+		"prettier": "^3.8.3",
+		"prettier-plugin-svelte": "^4.1.0",
+		"prettier-plugin-tailwindcss": "^0.8.0",
+		"svelte": "^5.57.2",
+		"svelte-check": "^4.6.0",
+		"tailwindcss": "^4.3.0",
+		"typescript": "^6.0.3",
+		"vite": "^8.3.0",
+		"vitest": "^4.1.8",
+		"wrangler": "^4.158.0"
+	},
+	"dependencies": {
+		"@paralleldrive/cuid2": "^3.3.0",
+		"drizzle-orm": "^0.45.4",
+		"zod": "^4.6.7"
+	}
+}

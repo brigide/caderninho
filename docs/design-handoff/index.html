@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caderninho de Figurinhas · Handoff</title>
+<script src="js/theme.js"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 40px 24px 64px; display: flex; flex-direction: column; gap: 28px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+  .tile { display: flex; flex-direction: column; gap: 10px; padding: 12px; text-decoration: none; }
+  .tile img { width: 100%; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border: 1.5px solid var(--ink); border-radius: 10px; background: var(--paper); }
+  .tile--wide img { aspect-ratio: 1280 / 820; }
+  .tile b { font-size: 15px; }
+</style>
+</head>
+<body class="dots">
+<div class="wrap">
+  <header style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px">
+    <div>
+      <h1 class="display-xl">Caderninho de Figurinhas</h1>
+      <p class="muted" style="margin-top:6px">Handoff de implementação · HTML, CSS e JS puros · abra qualquer tela abaixo</p>
+    </div>
+    <a class="btn btn--sm" href="?tema=escuro" id="tema">Ver no modo escuro</a>
+  </header>
+
+  <h2 class="display-m">Mobile · 390×844</h2>
+  <div class="grid">
+    <a class="card card--surface tile" href="telas/login.html"><img src="screenshots/01-login.png" alt="" loading="lazy"><b>1 · Login</b></a>
+    <a class="card card--surface tile" href="telas/registro.html"><img src="screenshots/02-registro.png" alt="" loading="lazy"><b>2 · Registro</b></a>
+    <a class="card card--surface tile" href="telas/album.html"><img src="screenshots/03-album.png" alt="" loading="lazy"><b>3 · Meu Álbum</b><span class="small">Interativa</span></a>
+    <a class="card card--surface tile" href="telas/album.html?tema=escuro"><img src="screenshots/03e-album-escuro.png" alt="" loading="lazy"><b>3 · Meu Álbum (escuro)</b></a>
+    <a class="card card--surface tile" href="telas/envelope.html"><img src="screenshots/04-envelope.png" alt="" loading="lazy"><b>4 · Abrindo envelope</b><span class="small">Interativa</span></a>
+    <a class="card card--surface tile" href="telas/detalhe.html"><img src="screenshots/05-detalhe.png" alt="" loading="lazy"><b>5 · Detalhe da figurinha</b></a>
+    <a class="card card--surface tile" href="telas/estatisticas.html"><img src="screenshots/06-estatisticas.png" alt="" loading="lazy"><b>6 · Estatísticas</b></a>
+    <a class="card card--surface tile" href="telas/grupos.html"><img src="screenshots/07a-grupos.png" alt="" loading="lazy"><b>7a · Grupos</b></a>
+    <a class="card card--surface tile" href="telas/grupo-detalhe.html"><img src="screenshots/07b-grupo-detalhe.png" alt="" loading="lazy"><b>7b · Detalhe do grupo</b></a>
+    <a class="card card--surface tile" href="telas/convite.html"><img src="screenshots/07c-convite.png" alt="" loading="lazy"><b>7c · Convidar</b></a>
+    <a class="card card--surface tile" href="telas/grupos-vazio.html"><img src="screenshots/07d-grupos-vazio.png" alt="" loading="lazy"><b>7d · Grupos (vazio)</b></a>
+    <a class="card card--surface tile" href="telas/trocas.html"><img src="screenshots/08a-trocas.png" alt="" loading="lazy"><b>8a · Trocas</b></a>
+    <a class="card card--surface tile" href="telas/trocas-vazio.html"><img src="screenshots/08b-trocas-vazio.png" alt="" loading="lazy"><b>8b · Trocas (vazio)</b></a>
+  </div>
+
+  <h2 class="display-m">Desktop · 1280</h2>
+  <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr))">
+    <a class="card card--surface tile tile--wide" href="telas/desktop-album.html"><img src="screenshots/d1-desktop-album.png" alt="" loading="lazy"><b>Meu Álbum · desktop</b><span class="small">Interativa</span></a>
+    <a class="card card--surface tile tile--wide" href="telas/desktop-trocas.html"><img src="screenshots/d2-desktop-trocas.png" alt="" loading="lazy"><b>Trocas · desktop</b></a>
+  </div>
+</div>
+<script>
+  /* Propaga ?tema=escuro para os links das telas */
+  (function () {
+    var escuro = document.documentElement.getAttribute('data-theme') === 'dark';
+    var t = document.getElementById('tema');
+    if (escuro) { t.textContent = 'Ver no modo claro'; t.href = '?'; }
+    if (escuro) document.querySelectorAll('a[href^="telas/"]').forEach(function (a) { if (a.href.indexOf('tema=') < 0) a.href += '?tema=escuro'; });
+  })();
+</script>
+</body>
+</html>

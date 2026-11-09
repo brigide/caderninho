@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Convidar · Caderninho de Figurinhas</title>
+<script src="../js/theme.js"></script>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+<div class="screen dots">
+  <div class="behind" aria-hidden="true" style="padding:20px 16px;gap:16px">
+    <span class="display" style="font-size:32px">Turma do prédio</span>
+    <div class="card card--yellow" style="height:80px"></div>
+    <div class="card card--surface" style="height:260px"></div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="conv-titulo" style="gap:16px;padding-bottom:28px">
+    <div class="sheet__handle" aria-hidden="true"></div>
+    <div class="sheet__head">
+      <h2 id="conv-titulo" class="display" style="font-size:30px">Convidar para a turma</h2>
+      <a href="grupo-detalhe.html" class="icon-btn" aria-label="Fechar"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></a>
+    </div>
+    <p>Mande este link para quem vai entrar. Cada pessoa cria a própria conta com ele.</p>
+
+    <div class="env-col" style="border-radius:12px">
+      <div class="perf" style="--surface:var(--paper)"></div>
+      <div class="env-col__body" style="padding:6px 16px 16px;gap:10px">
+        <span class="overline">Link de convite</span>
+        <div style="display:flex;align-items:center;gap:8px;background:var(--surface);border:1.5px dashed var(--ink);border-radius:10px;padding:10px 12px">
+          <span class="stamp" id="link" style="flex:1;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">caderninho.app/c/OUTONO-7KQ2</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span class="pill pill--info"><svg class="icon icon--xs" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>expira em 7 dias</span>
+          <span class="small">· código <b class="stamp">OUTONO-7KQ2</b></span>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn--primary btn--block" type="button" id="copiar" aria-live="polite">
+      <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span>Copiar link</span>
+    </button>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+      <button class="btn" type="button" id="compartilhar">Compartilhar…</button>
+      <button class="btn btn--ghost" type="button">Gerar novo link</button>
+    </div>
+    <p class="small center">Gerar um novo link desativa o anterior.</p>
+  </section>
+</div>
+<script>
+  /* Copiar link: troca o rótulo por "Copiado!" por 2s */
+  (function () {
+    var url = 'https://' + document.getElementById('link').textContent.trim();
+    var btn = document.getElementById('copiar');
+    btn.addEventListener('click', function () {
+      var label = btn.querySelector('span');
+      var done = function () { label.textContent = 'Copiado!'; setTimeout(function () { label.textContent = 'Copiar link'; }, 2000); };
+      if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, done); else done();
+    });
+    var share = document.getElementById('compartilhar');
+    share.addEventListener('click', function () {
+      if (navigator.share) navigator.share({ title: 'Caderninho de Figurinhas', text: 'Entra na nossa turma do álbum!', url: url }).catch(function () {});
+    });
+  })();
+</script>
+</body>
+</html>

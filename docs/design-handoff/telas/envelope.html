@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abrindo envelope · Caderninho de Figurinhas</title>
+<script src="../js/theme.js"></script>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+<div class="screen dots">
+  <!-- Prévia esmaecida do Álbum atrás do sheet -->
+  <div class="behind" aria-hidden="true">
+    <span class="display-l">Meu Álbum</span>
+    <div class="season-bar">
+      <div class="season-bar__seg"><div class="season-bar__fill fill--spring" style="width:75%"></div></div>
+      <div class="season-bar__seg"><div class="season-bar__fill fill--summer" style="width:72%"></div></div>
+      <div class="season-bar__seg"><div class="season-bar__fill fill--autumn" style="width:67%"></div></div>
+      <div class="season-bar__seg"><div class="season-bar__fill fill--winter" style="width:57%"></div></div>
+    </div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="env-titulo" data-envelope style="top:96px;gap:12px;padding:10px 16px 20px">
+    <div class="sheet__handle" aria-hidden="true"></div>
+    <div class="sheet__head">
+      <div>
+        <h2 id="env-titulo" class="display" style="font-size:30px">Abrindo envelope</h2>
+        <p class="small strong" style="font-size:14px;margin-top:2px">Envelope nº 14 · <span data-new>3 novas</span> · <span data-dup>2 repetidas</span></p>
+      </div>
+      <a href="album.html" class="icon-btn" aria-label="Fechar"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+        <span class="small strong">Digite o número</span>
+        <output class="display-input" data-display aria-live="polite"></output>
+      </div>
+      <span class="result result--new" data-result aria-live="polite" hidden></span>
+    </div>
+
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <span class="overline">Últimos lançados</span>
+        <span class="small muted" style="font-size:12px">toque em ↶ para desfazer</span>
+      </div>
+      <ul data-recent></ul>
+    </div>
+
+    <div class="keypad" role="group" aria-label="Teclado">
+      <button type="button" class="key" data-key-index="0">1</button>
+      <button type="button" class="key" data-key-index="1">2</button>
+      <button type="button" class="key" data-key-index="2">3</button>
+      <button type="button" class="key key--fn" data-backspace aria-label="Apagar">⌫</button>
+      <button type="button" class="key" data-key-index="3">4</button>
+      <button type="button" class="key" data-key-index="4">5</button>
+      <button type="button" class="key" data-key-index="5">6</button>
+      <button type="button" class="key key--mode" data-mode>ABC</button>
+      <button type="button" class="key" data-key-index="6">7</button>
+      <button type="button" class="key" data-key-index="7">8</button>
+      <button type="button" class="key" data-key-index="8">9</button>
+      <button type="button" class="key key--go" data-go>Lançar</button>
+      <button type="button" class="key key--wide" data-char="0" aria-label="0">0</button>
+    </div>
+  </section>
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/envelope.js"></script>
+</body>
+</html>

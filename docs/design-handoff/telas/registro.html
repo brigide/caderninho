@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Criar conta · Caderninho de Figurinhas</title>
+<script src="../js/theme.js"></script>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/illustrations.css">
+<style>
+  .sheet-page { position: relative; padding: 24px 22px 22px 34px; display: flex; flex-direction: column; gap: 16px; }
+  .sheet-page::before { content: ""; position: absolute; left: 18px; top: 0; bottom: 0; width: 1.5px; background: var(--season-spring); }
+</style>
+</head>
+<body>
+<main class="screen dots">
+  <div class="mug-top mug-top--pink mug-top--latte mug-top--handle-left" aria-hidden="true" style="--size:116px;left:272px;top:-34px;z-index:1">
+    <span class="mug-top__shadow"></span><span class="mug-top__handle"></span><span class="mug-top__body"></span>
+    <span class="puff puff--1"></span><span class="puff puff--2"></span>
+  </div>
+  <span class="leaf leaf--copper" aria-hidden="true" style="left:232px;top:104px;width:24px;height:24px;transform:rotate(-24deg)"></span>
+  <span class="leaf leaf--yellow" aria-hidden="true" style="right:22px;top:128px;width:18px;height:18px;transform:rotate(50deg)"></span>
+
+  <div class="screen__main" style="padding:20px 24px 28px;gap:18px">
+    <a href="login.html" class="icon-btn icon-btn--bare back" aria-label="Voltar"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></a>
+
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <h1 class="display" style="font-size:40px">Criar conta</h1>
+      <p class="small strong">Caderninho de Figurinhas · Snoopy 2026</p>
+    </div>
+
+    <form id="registro" class="card card--surface sheet-page" action="album.html" style="border-radius:6px 14px 14px 6px">
+      <span class="washi washi--blue" aria-hidden="true" style="top:-11px;right:34px;transform:rotate(-4deg)"></span>
+      <label class="field"><span class="field__label">Nome de exibição</span><input class="field__input" type="text" name="nome" placeholder="como a turma te chama" required></label>
+      <label class="field"><span class="field__label">Usuário</span><input class="field__input" type="text" name="usuario" placeholder="sem espaços" autocomplete="username" pattern="\S+" required></label>
+      <label class="field"><span class="field__label">Senha</span><input class="field__input" type="password" name="senha" placeholder="mín. 8 caracteres" autocomplete="new-password" minlength="8" required></label>
+      <label class="field"><span class="field__label">Código de convite</span><input class="field__input field__input--code" type="text" name="convite" placeholder="ex.: OUTONO-7KQ2" autocapitalize="characters" required></label>
+    </form>
+
+    <div class="info">
+      <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <p class="small" style="font-size:14px">Só para a turma. Peça o código a quem já está dentro.</p>
+    </div>
+
+    <button class="btn btn--primary btn--block" type="submit" form="registro" style="margin-top:auto">Criar meu caderninho</button>
+    <p class="center">Já tem conta? <a href="login.html" class="strong" style="text-decoration-style:wavy;text-underline-offset:4px">Entrar</a></p>
+  </div>
+</main>
+</body>
+</html>

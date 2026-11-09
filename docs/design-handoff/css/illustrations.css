@@ -1,0 +1,132 @@
+/* Ilustrações em CSS puro — nada de imagens.
+   Regras: a cena tem role="img" + aria-label; cada peça decorativa tem aria-hidden="true".
+   Tamanhos das canecas escalam por font-size (--size), então use em, não px. */
+
+/* ---------- Mesa de madeira (vista de cima) ---------- */
+.scene-wood {
+  position: relative; overflow: hidden;
+  background-color: var(--wood);
+  background-image:
+    radial-gradient(ellipse 22px 9px at 18% 72%, rgba(60, 34, 18, .55), rgba(60, 34, 18, 0) 70%),
+    radial-gradient(ellipse 18px 7px at 85% 14%, rgba(60, 34, 18, .5), rgba(60, 34, 18, 0) 70%),
+    repeating-linear-gradient(180deg, transparent 0 82px, rgba(43, 24, 12, .6) 82px 84px, rgba(255, 220, 180, .10) 84px 85px),
+    repeating-linear-gradient(179deg, rgba(255, 235, 210, .05) 0 2px, transparent 2px 7px, rgba(50, 28, 14, .08) 7px 9px, transparent 9px 15px),
+    linear-gradient(180deg, var(--wood-light) 0%, var(--wood) 45%, var(--wood-dark) 100%);
+}
+/* Variante com tábuas mais estreitas, para cenas pequenas */
+.scene-wood--tight { background-image:
+    repeating-linear-gradient(180deg, transparent 0 46px, rgba(43, 24, 12, .55) 46px 48px, rgba(255, 220, 180, .1) 48px 49px),
+    repeating-linear-gradient(179deg, rgba(255, 235, 210, .05) 0 2px, transparent 2px 7px, rgba(50, 28, 14, .08) 7px 9px, transparent 9px 15px),
+    linear-gradient(180deg, var(--wood-light) 0%, var(--wood) 55%, var(--wood-dark) 100%);
+  background-size: auto; }
+
+/* Luz quente de fim de tarde + vinheta */
+.warm-light { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 360px 300px at 92% -3%, rgba(255, 196, 120, .45), rgba(255, 196, 120, 0) 70%),
+              radial-gradient(ellipse 500px 420px at 50% 120%, rgba(30, 16, 8, .45), rgba(30, 16, 8, 0) 70%); }
+.light-beam { position: absolute; pointer-events: none; width: 70px; height: 520px; filter: blur(5px);
+  background: linear-gradient(180deg, rgba(255, 214, 150, .38), rgba(255, 214, 150, 0)); transform: rotate(32deg); }
+.light-beam--flicker { animation: flicker 7s ease-in-out infinite; }
+@keyframes flicker { 0%, 100% { opacity: .9; } 50% { opacity: .75; } }
+
+/* ---------- Folha de outono ---------- */
+.leaf { position: absolute; width: 26px; height: 26px; border: var(--stroke) solid #2B2622; border-radius: 0 75% 0 75%; box-shadow: 2px 3px 0 rgba(30, 18, 10, .25); }
+.leaf::after { content: ""; position: absolute; left: 50%; top: -3px; width: 1.5px; height: 130%; background: rgba(43, 38, 34, .55); transform: translateX(-50%) rotate(45deg); }
+.leaf--copper { background: var(--season-autumn); }
+.leaf--yellow { background: var(--zigzag); }
+.leaf--red { background: var(--doghouse); }
+.leaf--orange { background: var(--season-summer); }
+
+/* ---------- Lápis ---------- */
+.pencil { position: absolute; width: 156px; height: 13px; filter: drop-shadow(2px 4px 0 rgba(30, 18, 10, .28)); }
+.pencil > i { position: absolute; top: 0; height: 13px; border-top: var(--stroke) solid #2B2622; border-bottom: var(--stroke) solid #2B2622; }
+.pencil__eraser { left: 0; width: 16px; background: var(--season-spring); border-left: var(--stroke) solid #2B2622; border-radius: 4px 0 0 4px; }
+.pencil__ferrule { left: 14px; width: 10px; background: repeating-linear-gradient(90deg, #B8AC9F 0 2px, #8C8075 2px 3px); }
+.pencil__body { left: 24px; width: 108px; background: linear-gradient(180deg, #F7D774 0 35%, #F2C94C 35% 70%, #D9AE33 70%); }
+.pencil__tip { left: 131px; width: 25px; border: none !important; background: linear-gradient(90deg, #E8C9A0 0 70%, #2B2622 70%); clip-path: polygon(0 0, 100% 50%, 0 100%); }
+
+/* ---------- Caneca vista de cima ---------- */
+.mug-top { position: absolute; font-size: var(--size, 104px); width: 1.3em; height: 1.12em;
+  --mug: var(--blanket); --mug-light: #CFE3F4; --mug-dark: #86AFD3; }
+.mug-top--pink { --mug: var(--season-spring); --mug-light: #F5CFDC; --mug-dark: #D98FA9; }
+.mug-top--yellow { --mug: var(--zigzag); --mug-light: #F7D774; --mug-dark: #D9AE33; }
+.mug-top > span { position: absolute; box-sizing: border-box; }
+.mug-top__shadow { left: -.06em; top: .13em; width: 1.06em; height: 1.06em; border-radius: 50%; background: rgba(30, 18, 10, .32); filter: blur(3px); }
+.mug-top__handle { left: .83em; top: .35em; width: .385em; height: .33em; border: var(--stroke) solid #2B2622; border-radius: .06em .17em .17em .06em; background: var(--mug); box-shadow: -2px 4px 0 rgba(30, 18, 10, .25); }
+.mug-top__handle::after { content: ""; position: absolute; left: .055em; top: .07em; width: .17em; height: .145em; border: var(--stroke) solid #2B2622; border-radius: .03em .1em .1em .03em; background: var(--wood); }
+.mug-top--handle-left .mug-top__handle { left: -.25em; top: .62em; transform: scaleX(-1); }
+.mug-top__body { left: 0; top: 0; width: 1em; height: 1em; border: var(--stroke) solid #2B2622; border-radius: 50%;
+  background: radial-gradient(circle at 70% 25%, var(--mug-light) 0%, var(--mug) 45%, var(--mug-dark) 100%); }
+.mug-top__body::before { content: ""; position: absolute; inset: .085em; border-radius: 50%; border: var(--stroke) solid #2B2622; background: #F6EFE3; }
+.mug-top__body::after { content: ""; position: absolute; inset: .135em; border-radius: 50%;
+  background: radial-gradient(ellipse .3em .15em at 45% 35%, rgba(255, 226, 180, .45), rgba(255, 226, 180, 0) 70%),
+              radial-gradient(circle, #7A4A2A 0%, var(--coffee) 55%, #3E2212 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, .4); }
+.mug-top--latte .mug-top__body::after { background: radial-gradient(circle, #C99A6E 0%, #A8794F 55%, #7A4A2A 100%); }
+
+/* Vapor visto de cima: nuvenzinhas que sobem e somem */
+.puff { position: absolute; width: .32em; height: .32em; border-radius: 50%; filter: blur(2px);
+  background: radial-gradient(circle, rgba(255, 250, 240, .85) 0%, rgba(255, 250, 240, 0) 70%);
+  animation: steam 3.6s ease-out infinite; }
+.puff--1 { left: .29em; top: .21em; }
+.puff--2 { left: .46em; top: .29em; width: .27em; height: .27em; animation-delay: 1.2s; }
+.puff--3 { left: .21em; top: .35em; width: .29em; height: .29em; animation-delay: 2.4s; }
+@keyframes steam { 0% { transform: translate(0, 6px) scale(.6); opacity: 0; } 35% { opacity: .75; } 100% { transform: translate(-14px, -34px) scale(1.5); opacity: 0; } }
+
+/* ---------- Polaroid + cena lateral (duas canecas) ---------- */
+.polaroid { position: relative; width: 250px; height: 196px; padding: 10px 10px 38px; background: #FFFDF7; border: var(--stroke) solid #2B2622; box-shadow: 3px 4px 0 rgba(43, 38, 34, .15); transform: rotate(-2deg); }
+.polaroid__photo { position: relative; width: 100%; height: 100%; overflow: hidden; border: 1px solid rgba(43, 38, 34, .4); background: linear-gradient(180deg, #F5DFC0 0%, #EDCDA3 60%, #E3BD8E 100%); }
+.polaroid__caption { position: absolute; left: 0; right: 0; bottom: 6px; text-align: center; font-family: var(--font-display); font-size: 18px; color: #2B2622; }
+
+.window-light { position: absolute; left: 118px; top: -20px; width: 74px; height: 120px; transform: skewX(-18deg); background: linear-gradient(180deg, rgba(255, 246, 220, .85), rgba(255, 246, 220, .2)); }
+.window-light::before, .window-light::after { content: ""; position: absolute; background: rgba(206, 160, 110, .35); }
+.window-light::before { left: 35px; top: 0; width: 4px; height: 100%; }
+.window-light::after { left: 0; top: 52px; width: 100%; height: 4px; }
+
+.frame-pic { position: absolute; left: 14px; top: 16px; width: 30px; height: 40px; border: var(--stroke) solid #2B2622; background: var(--blanket); transform: rotate(-4deg); box-shadow: 1px 2px 0 rgba(43, 38, 34, .2); overflow: hidden; }
+.frame-pic::before { content: ""; position: absolute; left: 6px; top: 6px; width: 15px; height: 15px; border-radius: 50%; background: var(--zigzag); border: 1px solid #2B2622; }
+.frame-pic::after { content: ""; position: absolute; left: -2px; bottom: -1px; width: 32px; height: 14px; background: var(--grass); clip-path: polygon(0 100%, 0 40%, 30% 0, 60% 50%, 80% 20%, 100% 60%, 100% 100%); }
+
+.tabletop { position: absolute; left: 0; right: 0; top: 92px; bottom: 0; border-top: var(--stroke) solid #2B2622;
+  background: repeating-linear-gradient(180deg, transparent 0 14px, rgba(43, 24, 12, .35) 14px 15px),
+              repeating-linear-gradient(91deg, rgba(255, 235, 210, .07) 0 3px, transparent 3px 10px, rgba(50, 28, 14, .1) 10px 12px, transparent 12px 20px),
+              linear-gradient(180deg, #A06B4C 0%, var(--wood) 60%, #74472E 100%); }
+.tabletop::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: rgba(255, 214, 150, .35); }
+.contact-shadow { position: absolute; height: 10px; border-radius: 50%; background: rgba(30, 16, 8, .35); filter: blur(1.5px); }
+
+.mug-side { position: absolute; width: 52px; height: 56px; --mug: var(--doghouse); --mug-light: #DB6A5E; --mug-dark: #A8362D; }
+.mug-side--yellow { width: 46px; height: 50px; --mug: var(--zigzag); --mug-light: #F7D774; --mug-dark: #D9AE33; }
+.mug-side__handle { position: absolute; right: -14px; top: 12px; width: 22px; height: 26px; border: 5px solid var(--mug); outline: var(--stroke) solid #2B2622; border-radius: 4px 14px 14px 4px; }
+.mug-side--handle-left .mug-side__handle { right: auto; left: -13px; border-radius: 14px 4px 4px 14px; width: 20px; height: 23px; top: 11px; }
+.mug-side__body { position: absolute; inset: 0; overflow: hidden; border: var(--stroke) solid #2B2622; border-radius: 3px 3px 14px 14px;
+  background: linear-gradient(90deg, var(--mug-dark) 0%, var(--mug) 30%, var(--mug-light) 55%, var(--mug) 75%, var(--mug-dark) 100%); }
+.mug-side__band { position: absolute; left: 0; right: 0; top: 20px; height: 10px;
+  background: linear-gradient(135deg, #2B2622 25%, transparent 25%) -5px 0 / 10px 10px, linear-gradient(225deg, #2B2622 25%, transparent 25%) -5px 0 / 10px 10px; }
+.mug-side__rim { position: absolute; left: -1px; right: -1px; top: -6px; height: 12px; border: var(--stroke) solid #2B2622; border-radius: 50%; background: radial-gradient(ellipse at 50% 60%, var(--coffee) 0 55%, #F6EFE3 58%); }
+
+.wisp { position: absolute; width: 9px; height: 22px; border-left: 2px solid rgba(110, 99, 90, .6); border-radius: 50%; animation: wisp 3.2s ease-out infinite; }
+.wisp--r { border-left: none; border-right: 2px solid rgba(110, 99, 90, .6); }
+@keyframes wisp { 0% { transform: translateY(4px) scaleY(.7); opacity: 0; } 30% { opacity: .8; } 100% { transform: translateY(-20px) scaleY(1.2); opacity: 0; } }
+
+.cookie { position: absolute; width: 20px; height: 8px; border: var(--stroke) solid #2B2622; border-radius: 50%;
+  background: radial-gradient(circle at 30% 50%, var(--coffee) 1.5px, transparent 2px), radial-gradient(circle at 70% 40%, var(--coffee) 1.5px, transparent 2px), #E3B57A; }
+
+/* ---------- Envelope aberto (vista de cima) ---------- */
+.env { position: absolute; width: 104px; height: 66px; border: var(--stroke) solid #2B2622; border-radius: 3px; box-shadow: 3px 4px 0 rgba(30, 18, 10, .3);
+  background: linear-gradient(to top right, transparent 49%, rgba(43, 38, 34, .45) 49% 51%, transparent 51%) left bottom / 50% 100% no-repeat,
+              linear-gradient(to top left, transparent 49%, rgba(43, 38, 34, .45) 49% 51%, transparent 51%) right bottom / 50% 100% no-repeat,
+              #E8D8BF; }
+.env::before { content: ""; position: absolute; left: -1.5px; right: -1.5px; bottom: 100%; height: 34px; background: #2B2622; clip-path: polygon(0 100%, 50% 0, 100% 100%); }
+.env::after { content: ""; position: absolute; left: 1.5px; right: 1.5px; bottom: 100%; height: 31px; background: #D8C3A3; clip-path: polygon(0 100%, 50% 0, 100% 100%); }
+.env__seal { position: absolute; left: 40px; top: 22px; width: 20px; height: 20px; border-radius: 50%; background: var(--doghouse); border: var(--stroke) solid #2B2622; }
+
+/* ---------- Pilha de envelopes fechados (card Estimativa) ---------- */
+.env-stack { position: absolute; width: 76px; height: 64px; }
+.env-stack > i { position: absolute; width: 60px; height: 40px; border: var(--stroke) solid #2B2622; border-radius: 3px; box-shadow: 2px 2px 0 rgba(43, 38, 34, .15);
+  background: linear-gradient(to bottom right, transparent 48%, #2B2622 48% 52%, transparent 52%) left top / 50% 62% no-repeat,
+              linear-gradient(to bottom left, transparent 48%, #2B2622 48% 52%, transparent 52%) right top / 50% 62% no-repeat, #FFFDF7; }
+.env-stack > i:nth-child(1) { left: 6px; top: 18px; transform: rotate(-10deg); }
+.env-stack > i:nth-child(2) { left: 12px; top: 12px; transform: rotate(6deg); background-color: #F6EFE3; }
+.env-stack > i:nth-child(3) { left: 8px; top: 4px; transform: rotate(-3deg); }
+.env-stack > i:nth-child(3)::after { content: ""; position: absolute; left: 50%; top: 14px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--doghouse); border: var(--stroke) solid #2B2622; }
+.env-stack > b { position: absolute; right: -4px; top: -6px; padding: 3px 5px; font-size: 12px; line-height: 1; font-weight: 800; color: #2B2622; background: var(--zigzag); border: var(--stroke) solid #2B2622; border-radius: 8px; transform: rotate(8deg); }

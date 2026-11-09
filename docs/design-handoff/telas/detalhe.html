@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Figurinha 35 · Caderninho de Figurinhas</title>
+<script src="../js/theme.js"></script>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<style>
+  .cell--xl { width: 112px; min-width: 112px; font-size: 46px; border-width: 2px; border-radius: 18px 20px 17px 19px; box-shadow: var(--shadow-card); cursor: default; }
+  .cell--xl .cell__star { width: 14px; height: 14px; top: 9px; left: 10px; }
+  .cell--xl .cell__check { width: 26px; height: 22px; right: 8px; bottom: 6px; }
+  .cell--xl .cell__badge { font-size: 15px; padding: 4px 7px; top: -10px; right: -10px; }
+  .meta { display: flex; flex-direction: column; gap: 2px; }
+  .meta b { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .meta span { font-size: 16px; font-weight: 700; }
+  .turma-row { display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: var(--surface); border: var(--stroke) solid var(--ink); border-radius: var(--radius-sm); }
+</style>
+</head>
+<body>
+<div class="screen dots">
+  <div class="behind" aria-hidden="true">
+    <span class="display-l">Meu Álbum</span>
+    <div class="sticker-grid">
+      <span class="cell cell--have"></span><span class="cell cell--missing"></span><span class="cell cell--have"></span>
+      <span class="cell cell--have"></span><span class="cell cell--missing"></span><span class="cell cell--have"></span>
+    </div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="fig-titulo" style="top:150px;gap:18px">
+    <div class="sheet__handle" aria-hidden="true"></div>
+
+    <div style="display:flex;gap:18px;align-items:center">
+      <span class="cell cell--have cell--special cell--xl" role="img" aria-label="Figurinha 35, especial, colada, 2 cópias">
+        <span class="cell__shine"></span>
+        <svg class="cell__star" viewBox="0 0 10 10" aria-hidden="true"><path d="M5 0 6 4 10 5 6 6 5 10 4 6 0 5 4 4Z"/></svg>
+        35
+        <svg class="cell__check" viewBox="0 0 16 14" aria-hidden="true"><path d="M2 8c2 1 3 3 4 4 2-4 5-8 9-10"/></svg>
+        <span class="cell__badge">×2</span>
+      </span>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h2 id="fig-titulo" class="display" style="font-size:32px">Figurinha 35</h2>
+        <span class="pill pill--dup" style="align-self:flex-start">Repetida · 2 cópias</span>
+      </div>
+    </div>
+
+    <div class="card" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:14px 16px;box-shadow:none">
+      <div class="meta"><b>Estação</b><span style="display:inline-flex;align-items:center;gap:6px"><i style="width:10px;height:10px;border-radius:50%;background:var(--season-spring);border:1.5px solid var(--ink)"></i>Primavera</span></div>
+      <div class="meta"><b>Tipo</b><span>Especial</span></div>
+      <div class="meta"><b>Página</b><span>4</span></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+      <button class="btn" type="button" disabled style="background:var(--grass-soft)">
+        <svg viewBox="0 0 16 14" width="18" height="16" aria-hidden="true" style="fill:none;stroke:var(--grass-ink);stroke-width:2.2;stroke-linecap:round"><path d="M2 8c2 1 3 3 4 4 2-4 5-8 9-10"/></svg>Colada
+      </button>
+      <button class="btn btn--yellow" type="button">+ Repetida</button>
+      <button class="btn" type="button">– Repetida</button>
+      <button class="btn btn--danger" type="button">Desmarcar</button>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span class="overline">Na sua turma</span>
+      <div class="turma-row">
+        <span class="avatar avatar--sm avatar--pink" style="width:34px;height:34px">A</span>
+        <span style="flex:1"><b>Ana</b> precisa dessa</span>
+        <a href="trocas.html" class="strong" style="color:var(--doghouse-text);font-size:14px">Oferecer</a>
+      </div>
+      <div class="turma-row">
+        <span class="avatar avatar--sm avatar--orange" style="width:34px;height:34px">L</span>
+        <span style="flex:1"><b>Léo</b> também tem repetida</span>
+      </div>
+    </div>
+
+    <a href="album.html" class="btn btn--ghost btn--sm" style="align-self:center">Fechar</a>
+  </section>
+</div>
+</body>
+</html>
