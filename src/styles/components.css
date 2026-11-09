@@ -1008,3 +1008,35 @@
 	background: var(--ink);
 	color: var(--paper);
 }
+
+/* ---- Complementos usados pelas telas (ausentes no CSS do handoff) ---- */
+.cell--xl {
+	width: 96px;
+	min-width: 96px;
+	height: 96px;
+	font-size: 30px;
+	flex: none;
+}
+.cell--xl .cell__check {
+	width: 26px;
+	height: 22px;
+	right: 6px;
+	bottom: 4px;
+}
+.cell--xl .cell__badge {
+	font-size: 14px;
+	padding: 2px 8px;
+}
+.meta {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	font-size: var(--text-small);
+}
+.meta b {
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+}
