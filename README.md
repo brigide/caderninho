@@ -2,7 +2,7 @@
 
 Companheiro para o álbum **Snoopy – Um Ano para Recordar** (Panini, 2026): registre figurinhas coladas e repetidas, veja estatísticas e descubra trocas com a sua turma.
 
-- Produção: https://app.caderninho.workers.dev (Cloudflare Workers + D1, plano Free)
+- Produção: https://app.caderninhosnoopy.workers.dev (Cloudflare Workers + D1, plano Free)
 - Documentação: [`docs/`](docs/) — plano de implementação, hospedagem, handoff de design.
 
 ## Estado
