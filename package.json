@@ -12,8 +12,8 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
-		"check": "wrangler types && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "wrangler types && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"check": "node scripts/cf-types.mjs && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "node scripts/cf-types.mjs && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check .",
 		"format": "prettier --write .",
 		"test:unit": "vitest",
@@ -25,7 +25,7 @@
 		"db:seed:local": "npm run seed && wrangler d1 execute caderninho --local --file=./data/seed.sql",
 		"db:seed:remote": "npm run seed && wrangler d1 execute caderninho --remote --file=./data/seed.sql",
 		"deploy": "npm run build && wrangler deploy",
-		"cf-typegen": "wrangler types"
+		"cf-typegen": "node scripts/cf-types.mjs"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-cloudflare": "^8.0.2",

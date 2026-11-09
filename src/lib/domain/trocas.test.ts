@@ -19,7 +19,7 @@ describe('trocas', () => {
 
 describe('maisProcuradas', () => {
 	it('ordena por quantos membros precisam, depois por código numérico', () => {
-		const members = [
+		const members: Copias[] = [
 			{ '1': 1, '2': 0 },
 			{ '1': 0, '2': 0 },
 			{ '1': 1, '2': 0, '4': 1 }
