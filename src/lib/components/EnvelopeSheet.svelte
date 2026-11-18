@@ -23,6 +23,8 @@
 	function digitar(ch: string) {
 		if (input.length < MAX) input += ch;
 		invalido = null;
+		// Depois de uma letra (ex.: X), volta aos números para digitar o resto do código.
+		if (/[A-Z]/.test(ch)) letras = false;
 	}
 	function apagar() {
 		input = input.slice(0, -1);
@@ -48,7 +50,7 @@
 	}
 	function tecla(e: KeyboardEvent) {
 		if (e.metaKey || e.ctrlKey || e.altKey) return;
-		if (/^[0-9a-iA-I]$/.test(e.key)) digitar(e.key.toUpperCase());
+		if (/^[0-9a-iA-IxX]$/.test(e.key)) digitar(e.key.toUpperCase());
 		else if (e.key === 'Backspace') apagar();
 		else if (e.key === 'Enter') lancar();
 		else return;
@@ -156,8 +158,8 @@
 				>{t}</button
 			>{/each}
 		<button type="button" class="key key--go" onclick={lancar} disabled={!input}>Lançar</button>
-		<button type="button" class="key key--wide" aria-label="0" onclick={() => digitar('0')}
-			>0</button
+		<button type="button" class="key key--wide" onclick={() => digitar(letras ? 'X' : '0')}
+			>{letras ? 'X' : '0'}</button
 		>
 	</div>
 </Sheet>
